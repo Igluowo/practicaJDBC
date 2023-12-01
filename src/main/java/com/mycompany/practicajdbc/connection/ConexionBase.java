@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class ConexionBase {
     public ConexionBase() {}
     
-    public Connection conectar() {
+    public static Connection conectar() {
         try {
             Connection conexion = DriverManager.getConnection("jdbc:sqlserver://igluser.database.windows.net\\prueba:1433;databaseName=SwapSnap;encrypt=true;trustServerCertificate=true;",
                     "iglu", "30606933Eri");
@@ -73,5 +73,12 @@ public class ConexionBase {
         Statement consulta = conexion.createStatement();
         consulta.executeQuery("Update Productos set disponible = 'false' where idUsuario = " + idUsuario 
                 + " and nombre = '" + nombre + "'");
+    }
+    
+    public void crearTablas(Connection conexion) throws SQLException {
+        String tablaAlumno = "CREATE TABLE Alumnos(id integer primary key, "
+                + "nombre varchar(50), telefono char(9), direccion varchar(200))";
+        String tablaAsignatura = 
+        PreparedStatement crear = conexion.prepareStatement("");
     }
 }
