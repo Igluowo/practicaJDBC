@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.mycompany.practicajdbc.vistas.PrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.practicajdbc.vistas.PrincipalController">
    <children>
       <Pane prefHeight="400.0" prefWidth="601.0">
          <children>
@@ -18,13 +17,13 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Salir">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem fx:id="Salir" mnemonicParsing="false" onAction="#Salir" text="Cerrar" />
                   </items>
                 </Menu>
               </menus>
             </MenuBar>
-            <Button layoutX="115.0" layoutY="137.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="76.0" text="A" />
-            <Button layoutX="263.0" layoutY="137.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="76.0" text="B" />
+            <Button fx:id="botonA" layoutX="115.0" layoutY="137.0" mnemonicParsing="false" onAction="#cambiarA" prefHeight="49.0" prefWidth="76.0" text="A" />
+            <Button layoutX="263.0" layoutY="137.0" mnemonicParsing="false" onAction="#cambiarB" prefHeight="49.0" prefWidth="76.0" text="B" />
             <Button layoutX="406.0" layoutY="137.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="76.0" text="C" />
             <Button layoutX="115.0" layoutY="229.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="76.0" text="D" />
             <Button layoutX="263.0" layoutY="229.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="76.0" text="E" />

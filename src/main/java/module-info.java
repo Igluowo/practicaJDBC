@@ -4,7 +4,7 @@ module com.mycompany.practicajdbc {
     requires java.base;
     requires java.sql;
 
-    opens com.mycompany.practicajdbc to javafx.fxml;
+    opens com.mycompany.practicajdbc.vistas to javafx.fxml;
     exports com.mycompany.practicajdbc;
     exports com.mycompany.practicajdbc.vistas;
 }

@@ -8,11 +8,14 @@ import com.mycompany.practicajdbc.App;
 import com.mycompany.practicajdbc.connection.ConexionBase;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -36,14 +39,17 @@ public class EjercicioAController implements Initializable {
     private Button botonSalir;
 
     @FXML
-    void crearTablas(ActionEvent event) {
+    void crearTablas(ActionEvent event) throws SQLException {
         Connection conexion = ConexionBase.conectar();
-        
+        ConexionBase crearTablas = new ConexionBase();
+        crearTablas.crearTablas(conexion);
     }
 
     @FXML
     void salir(ActionEvent event) {
-
+        Node source = (Node) event.getSource();   
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();   
     }
     
 }
