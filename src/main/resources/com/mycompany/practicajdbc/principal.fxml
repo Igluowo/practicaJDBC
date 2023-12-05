@@ -24,11 +24,11 @@
             </MenuBar>
             <Button fx:id="botonA" layoutX="115.0" layoutY="137.0" mnemonicParsing="false" onAction="#cambiarA" prefHeight="49.0" prefWidth="76.0" text="A" />
             <Button layoutX="263.0" layoutY="137.0" mnemonicParsing="false" onAction="#cambiarB" prefHeight="49.0" prefWidth="76.0" text="B" />
-            <Button layoutX="406.0" layoutY="137.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="76.0" text="C" />
-            <Button layoutX="115.0" layoutY="229.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="76.0" text="D" />
-            <Button layoutX="263.0" layoutY="229.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="76.0" text="E" />
-            <Button layoutX="406.0" layoutY="229.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="76.0" text="F" />
-            <Button layoutX="263.0" layoutY="316.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="76.0" text="G" />
+            <Button fx:id="botonC" layoutX="406.0" layoutY="137.0" mnemonicParsing="false" onAction="#cambiarC" prefHeight="49.0" prefWidth="76.0" text="C" />
+            <Button fx:id="botonD" layoutX="115.0" layoutY="229.0" mnemonicParsing="false" onAction="#cambiarD" prefHeight="49.0" prefWidth="76.0" text="D" />
+            <Button fx:id="botonE" layoutX="263.0" layoutY="229.0" mnemonicParsing="false" onAction="#cambiarE" prefHeight="49.0" prefWidth="76.0" text="E" />
+            <Button fx:id="botonF" layoutX="406.0" layoutY="229.0" mnemonicParsing="false" onAction="#cambiarF" prefHeight="49.0" prefWidth="76.0" text="F" />
+            <Button fx:id="botonG" layoutX="263.0" layoutY="316.0" mnemonicParsing="false" onAction="#cambiarG" prefHeight="49.0" prefWidth="76.0" text="G" />
             <Label layoutX="251.0" layoutY="66.0" prefHeight="49.0" prefWidth="122.0" text="Ejercicios">
                <font>
                   <Font size="24.0" />

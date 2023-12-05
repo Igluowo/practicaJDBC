@@ -65,6 +65,36 @@ public class PrincipalController implements Initializable {
     }
 
     @FXML
+    void cambiarC(ActionEvent event) {
+
+    }
+
+    @FXML
+    void cambiarD(ActionEvent event) throws IOException {
+        FXMLLoader escena = new FXMLLoader(App.class.getResource("EjercicioD.fxml"));
+        Parent looker = escena.load();
+        Scene scene = new Scene(looker);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void cambiarE(ActionEvent event) {
+
+    }
+
+    @FXML
+    void cambiarF(ActionEvent event) {
+
+    }
+
+    @FXML
+    void cambiarG(ActionEvent event) {
+
+    }
+
+    @FXML
     void Salir(ActionEvent event) {
         System.exit(0);
     }

@@ -119,15 +119,15 @@ public class ConexionBase {
                 + "drop table if exists Asignaturas\n"
                 + "drop table if exists Direccion\n"
                 + "drop table if exists Familiar\n";
-        String tablaAlumno = "CREATE TABLE Alumnos(id int primary key, "
+        String tablaAlumno = "CREATE TABLE Alumnos(id int primary key identity, "
                 + "nombre varchar(50) not null, telefono char(9) not null, direccion varchar(200) not null)\n";
-        String tablaAsignatura = "CREATE TABLE Asignaturas(id int primary key, idAlumno int, nombre varchar(50), "
+        String tablaAsignatura = "CREATE TABLE Asignaturas(id int primary key identity, idAlumno int, nombre varchar(50), "
                 + "telefono char(9), direccion varchar(200), constraint FK_idAlumno_Asi Foreign key (idAlumno) references Alumnos(id))";
-        String tablaDireccion = "create table Direccion(\n" + "id int primary key,\n" + "idAlumno int,\n"
+        String tablaDireccion = "create table Direccion(\n" + "id int primary key identity,\n" + "idAlumno int,\n"
                 + "direccion varchar(200),\n"
                 + "constraint FK_idAlumno_dir Foreign key (idAlumno) references Alumnos(id)\n"
                 + ")";
-        String tablaFamiliar = "create table Familiar(id int primary key, idAlumno int, "
+        String tablaFamiliar = "create table Familiar(id int primary key identity, idAlumno int, "
                 + "nombre varchar(50), sexo varchar(20), telefono char(9), custodia char(1),\n"
                 + "constraint FK_idAlumno_Fam Foreign key (idAlumno) references Alumnos(id))\n";
         if (error) {
