@@ -6,6 +6,7 @@ package com.mycompany.practicajdbc.repositories;
 
 import com.mycompany.practicajdbc.connection.ConexionBase;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -16,10 +17,27 @@ import java.sql.Statement;
 public class DireccionRepositorio {
     public DireccionRepositorio() {}
     
+    /* EjercicioD (ii): Insertar */
     public void insertarDireccion(String direccion, int idAlumno) throws SQLException {
         ConexionBase controlador = new ConexionBase();
         Connection conexion = controlador.conectar();
         Statement insertar = conexion.createStatement();
         insertar.executeUpdate("INSERT INTO Direccion VALUES(" + idAlumno + ", '" + direccion + "')");
+    }
+    
+    /* EjercicioF (i): Eliminar */
+    public void eliminarDireccion(int idAlumno) throws SQLException {
+        ConexionBase controlador = new ConexionBase();
+        Connection conexion = controlador.conectar();
+        Statement eliminar = conexion.createStatement();
+        eliminar.executeUpdate("DELETE FROM Direccion where id = " + idAlumno);
+    }
+    
+    /* EjercicioG: Consultar */
+    public ResultSet consultar() throws SQLException {
+        ConexionBase controlador = new ConexionBase();
+        Connection conexion = controlador.conectar();
+        Statement consultar = conexion.createStatement();
+        return consultar.executeQuery("SELECT * FROM Direccion");
     }
 }

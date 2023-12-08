@@ -51,6 +51,7 @@ public class PrincipalController implements Initializable {
         Scene scene = new Scene(looker);
         Stage stage = new Stage();
         stage.setScene(scene);
+        cerrar(event);
         stage.show();
     }
 
@@ -61,12 +62,19 @@ public class PrincipalController implements Initializable {
         Scene scene = new Scene(looker);
         Stage stage = new Stage();
         stage.setScene(scene);
+        cerrar(event);
         stage.show();
     }
 
     @FXML
-    void cambiarC(ActionEvent event) {
-
+    void cambiarC(ActionEvent event) throws IOException {
+        FXMLLoader escena = new FXMLLoader(App.class.getResource("EjercicioC.fxml"));
+        Parent looker = escena.load();
+        Scene scene = new Scene(looker);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        cerrar(event);
+        stage.show();
     }
 
     @FXML
@@ -76,27 +84,52 @@ public class PrincipalController implements Initializable {
         Scene scene = new Scene(looker);
         Stage stage = new Stage();
         stage.setScene(scene);
+        cerrar(event);
         stage.show();
     }
 
     @FXML
-    void cambiarE(ActionEvent event) {
-
+    void cambiarE(ActionEvent event) throws IOException {
+        FXMLLoader escena = new FXMLLoader(App.class.getResource("EjercicioE.fxml"));
+        Parent looker = escena.load();
+        Scene scene = new Scene(looker);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        cerrar(event);
+        stage.show();
     }
 
     @FXML
-    void cambiarF(ActionEvent event) {
-
+    void cambiarF(ActionEvent event) throws IOException {
+        FXMLLoader escena = new FXMLLoader(App.class.getResource("EjercicioF.fxml"));
+        Parent looker = escena.load();
+        Scene scene = new Scene(looker);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        cerrar(event);
+        stage.show();
     }
 
     @FXML
-    void cambiarG(ActionEvent event) {
-
+    void cambiarG(ActionEvent event) throws IOException {
+        FXMLLoader escena = new FXMLLoader(App.class.getResource("EjercicioG.fxml"));
+        Parent looker = escena.load();
+        Scene scene = new Scene(looker);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        cerrar(event);
+        stage.show();
     }
 
     @FXML
     void Salir(ActionEvent event) {
         System.exit(0);
+    }
+    
+    void cerrar(ActionEvent event) {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
 }

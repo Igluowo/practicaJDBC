@@ -77,6 +77,14 @@ public class RegistrarAlumnosController implements Initializable {
         AlumnoRepositorio alumno = new AlumnoRepositorio();
         try {
             alumno.insertarAlumno(nombre, telefono, direccion);
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setHeaderText(null);
+            alerta.setTitle("Se ha realizado correctamente");
+            alerta.setContentText("[i] Se ha insertado el alumno correctamente");
+            alerta.showAndWait();
+            Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
         }catch(SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);

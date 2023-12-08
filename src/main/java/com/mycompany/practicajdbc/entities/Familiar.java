@@ -71,5 +71,11 @@ public class Familiar {
 
     public void setCustodia(boolean custodia) {
         this.custodia = custodia;
-    }        
-}
+    }   
+    
+    @Override
+    public String toString() {
+        return "ID: " + id + "\nIDAlumno: " + idAlumno + "\nNombre: " + nombre 
+                + "\nSexo: " + sexo + "\nTelefono: " + telefono + "\nCustodia: " + custodia;
+    }
+} 

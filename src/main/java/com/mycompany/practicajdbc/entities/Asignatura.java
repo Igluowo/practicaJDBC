@@ -9,6 +9,7 @@ package com.mycompany.practicajdbc.entities;
  * @author 2damb
  */
 public class Asignatura {
+
     int id;
     int idAlumno;
     String nombre;
@@ -61,5 +62,11 @@ public class Asignatura {
 
     public void setNota(int nota) {
         this.nota = nota;
-    }        
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + "\nIDAlumno: " + idAlumno + "\nNombre: " + nombre
+                + "\nCurso: " + curso + "\nNota: " + nota;
+    }
 }

@@ -54,14 +54,25 @@ public class EjercicioDController implements Initializable {
 
     @FXML
     void abrirFamiliar(ActionEvent event) throws IOException {
-
+        FXMLLoader escena = new FXMLLoader(App.class.getResource("registrarFamiliar.fxml"));
+        Parent looker = escena.load();
+        Scene scene = new Scene(looker);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void salir(ActionEvent event) {
+    void salir(ActionEvent event) throws IOException {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+        FXMLLoader escena = new FXMLLoader(App.class.getResource("principal.fxml"));
+        Parent looker = escena.load();
+        Scene scene = new Scene(looker);
+        stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

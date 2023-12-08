@@ -72,6 +72,14 @@ public class RegistrarDireccionController implements Initializable {
         DireccionRepositorio direcciones = new DireccionRepositorio();
         try {
             direcciones.insertarDireccion(direccion, idAlumno);
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setHeaderText(null);
+            alerta.setTitle("Se ha realizado correctamente");
+            alerta.setContentText("[i] Se ha insertado la direccion correctamente");
+            alerta.showAndWait();
+            Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);

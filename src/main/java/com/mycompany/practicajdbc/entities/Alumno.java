@@ -11,9 +11,9 @@ public class Alumno {
     int id;
     String nombre;
     int telefono;
-    ArrayList<Direccion> direccion;
+    ArrayList<String> direccion;
     
-    public Alumno(int id, String nombre, int telefono, ArrayList<Direccion> direccion) {
+    public Alumno(int id, String nombre, int telefono, ArrayList<String> direccion) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -44,11 +44,26 @@ public class Alumno {
         this.telefono = telefono;
     }
 
-    public ArrayList<Direccion> getDireccion() {
+    public ArrayList<String> getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(ArrayList<Direccion> direccion) {
+    public void setDireccion(ArrayList<String> direccion) {
         this.direccion = direccion;
     }   
+    
+    @Override
+    public String toString() {
+        StringBuilder direccionString = new StringBuilder();
+        int indice = 0;
+        for (String direcciones : direccion) {
+            direccionString.append(direcciones);
+            if (indice < direccion.size() - 1) {
+                direccionString.append(", ");
+            }
+            indice++;
+        }
+        return "ID: " + id + "\nNombre: " + nombre + "\nTelefono: " + telefono 
+                + "\nDireccion: " + direccionString;
+    }
 }

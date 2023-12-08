@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.practicajdbc.vistas.EjercicioCController">
+   <children>
+      <Label layoutX="66.0" layoutY="14.0" prefHeight="70.0" prefWidth="492.0" text="Consultas de alumnos">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="consulta" layoutX="40.0" layoutY="148.0" onAction="#cambioConsulta" prefHeight="26.0" prefWidth="201.0" />
+      <TextArea fx:id="areaResultados" editable="false" layoutX="259.0" layoutY="100.0" prefHeight="281.0" prefWidth="322.0" />
+      <Button fx:id="botonConsultar" layoutX="139.0" layoutY="298.0" mnemonicParsing="false" onAction="#consultar" text="Consultar" />
+      <Button fx:id="botonCancelar" layoutX="40.0" layoutY="298.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+      <TextField fx:id="fieldAlumnos" layoutX="39.0" layoutY="227.0" prefHeight="26.0" prefWidth="202.0" />
+      <Label fx:id="etiquetaAlumnos" layoutX="40.0" layoutY="200.0" prefHeight="18.0" prefWidth="125.0" text="Nombre de alumnos" />
+      <Label layoutX="40.0" layoutY="120.0" prefHeight="18.0" prefWidth="125.0" text="Consulta a realizar" />
+   </children>
+</AnchorPane>

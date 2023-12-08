@@ -6,14 +6,19 @@ package com.mycompany.practicajdbc.vistas;
 
 import com.mycompany.practicajdbc.App;
 import com.mycompany.practicajdbc.connection.ConexionBase;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -30,9 +35,9 @@ public class EjercicioAController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
-      @FXML
+    }
+
+    @FXML
     private Button botonCrear;
 
     @FXML
@@ -43,13 +48,22 @@ public class EjercicioAController implements Initializable {
         Connection conexion = ConexionBase.conectar();
         ConexionBase crearTablas = new ConexionBase();
         crearTablas.crearTablas(conexion);
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
-    void salir(ActionEvent event) {
-        Node source = (Node) event.getSource();   
+    void salir(ActionEvent event) throws IOException {
+        Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();   
+        stage.close();
+        FXMLLoader escena = new FXMLLoader(App.class.getResource("principal.fxml"));
+        Parent looker = escena.load();
+        Scene scene = new Scene(looker);
+        stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
-    
+
 }
