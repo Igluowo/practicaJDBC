@@ -31,52 +31,6 @@ public class ConexionBase {
         }
     }
 
-    public ResultSet datosTabla(Connection conexion) throws SQLException {
-        Statement consulta = conexion.createStatement();
-        ResultSet resultado = consulta.executeQuery("Select * from Usuarios");
-        return resultado;
-    }
-
-    public ResultSet datosProductos(Connection conexion) throws SQLException {
-        Statement consulta = conexion.createStatement();
-        ResultSet resultado = consulta.executeQuery("Select * from Productos");
-        return resultado;
-    }
-
-    public ResultSet obtenerUsuario(Connection conexion, String usuario) throws SQLException {
-        Statement consulta = conexion.createStatement();
-        ResultSet resultado = consulta.executeQuery("Select * from usuarios where usuario == '" + usuario + "'");
-        return resultado;
-    }
-
-    public ResultSet obtenerProductoUsuario(Connection conexion, int id) throws SQLException {
-        Statement consulta = conexion.createStatement();
-        ResultSet resultado = consulta.executeQuery("Select * from Productos where idUsuario == '" + id + "'");
-        return resultado;
-    }
-
-    public ResultSet obtenerProducto(Connection conexion, int id) throws SQLException {
-        Statement consulta = conexion.createStatement();
-        ResultSet resultado = consulta.executeQuery("Select * from Productos where id == '" + id + "'");
-        return resultado;
-    }
-
-    public void cambiarClave(Connection conexion, String usuario, String nuevaClave) throws SQLException {
-        Statement consulta = conexion.createStatement();
-        consulta.executeQuery("Update Usuarios set clave = " + nuevaClave + " where usuario = " + usuario);
-    }
-
-    public void editarProducto(Connection conexion, String campo, String nuevoDato, int idUsuario) throws SQLException {
-        Statement consulta = conexion.createStatement();
-        consulta.executeQuery("Update Productos set " + campo + " = " + nuevoDato + " where idUsuario = " + idUsuario);
-    }
-
-    public void editarEstadoProducto(Connection conexion, int idUsuario, String nombre) throws SQLException {
-        Statement consulta = conexion.createStatement();
-        consulta.executeQuery("Update Productos set disponible = 'false' where idUsuario = " + idUsuario
-                + " and nombre = '" + nombre + "'");
-    }
-
     /* Ejercicio A: Creacion de tablas */
     public void crearTablas(Connection conexion) {
         try {
@@ -95,6 +49,7 @@ public class ConexionBase {
                 alert.setContentText("[i] La tablas se han creado correctamente");
                 alert.showAndWait();
             } catch (SQLException b) {
+                b.printStackTrace();
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
                 alert.setTitle("Error");
@@ -112,10 +67,10 @@ public class ConexionBase {
                 + "drop constraint FK_idAlumno_dir\n"
                 + "alter table Familiar\n"
                 + "drop constraint FK_idAlumno_Fam\n";
-        String borradoTablas = "drop table if exists Alumnos\n"
-                + "drop table if exists Asignaturas\n"
+        String borradoTablas = "drop table if exists Asignaturas\n"
+                + "drop table if exists Familiar\n"
                 + "drop table if exists Direccion\n"
-                + "drop table if exists Familiar\n";
+                + "drop table if exists Alumnos\n";
         String tablaAlumno = "CREATE TABLE Alumnos(id int primary key identity, "
                 + "nombre varchar(50) not null, telefono char(9) not null, direccion varchar(200) not null)\n";
         String tablaAsignatura = "CREATE TABLE Asignaturas(id int primary key identity, idAlumno int, nombre varchar(50), "
@@ -132,7 +87,8 @@ public class ConexionBase {
                     + tablaDireccion + tablaFamiliar);
             crear.execute();
         } else {
-            PreparedStatement crear = conexion.prepareStatement(borrarForaneas + borradoTablas + tablaAlumno + tablaAsignatura
+            PreparedStatement crear = conexion.prepareStatement(borrarForaneas + borradoTablas 
+                    + tablaAlumno + tablaAsignatura
                     + tablaDireccion + tablaFamiliar);
             crear.execute();
         }

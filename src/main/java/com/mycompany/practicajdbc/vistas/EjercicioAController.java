@@ -44,13 +44,11 @@ public class EjercicioAController implements Initializable {
     private Button botonSalir;
 
     @FXML
-    void crearTablas(ActionEvent event) throws SQLException {
+    void crearTablas(ActionEvent event) throws SQLException, IOException {
         Connection conexion = ConexionBase.conectar();
         ConexionBase crearTablas = new ConexionBase();
         crearTablas.crearTablas(conexion);
-        Node source = (Node) event.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+        salir(event);
     }
 
     @FXML

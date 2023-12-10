@@ -18,7 +18,8 @@ public class FamiliarRepositorio {
     public FamiliarRepositorio() {}
     
     /* EjercicioD (iii): Insertar */
-    public void insertarFamiliar(int idAlumno, String nombre, String sexo, int telefono, boolean custodia) throws SQLException {
+    public void insertarFamiliar(int idAlumno, String nombre, String sexo, int telefono, 
+            boolean custodia) throws SQLException {
         ConexionBase controlador = new ConexionBase();
         Connection conexion = controlador.conectar();
         Statement insertar = conexion.createStatement();

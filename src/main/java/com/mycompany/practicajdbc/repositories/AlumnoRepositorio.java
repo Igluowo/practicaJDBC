@@ -5,13 +5,10 @@
 package com.mycompany.practicajdbc.repositories;
 
 import com.mycompany.practicajdbc.connection.ConexionBase;
-import com.mycompany.practicajdbc.entities.Alumno;
-import com.mycompany.practicajdbc.entities.Direccion;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 /**
  *

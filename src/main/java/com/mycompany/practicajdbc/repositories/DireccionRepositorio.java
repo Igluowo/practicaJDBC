@@ -30,7 +30,7 @@ public class DireccionRepositorio {
         ConexionBase controlador = new ConexionBase();
         Connection conexion = controlador.conectar();
         Statement eliminar = conexion.createStatement();
-        eliminar.executeUpdate("DELETE FROM Direccion where id = " + idAlumno);
+        eliminar.executeUpdate("DELETE FROM Direccion where idAlumno = " + idAlumno);
     }
     
     /* EjercicioG: Consultar */
